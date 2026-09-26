@@ -1,0 +1,225 @@
+:root {
+  --coal: #0d0f0e;
+  --surface: #161917;
+  --surface-hover: #1f2321;
+  --border: #2a2f2c;
+  --green: #22c55e;
+  --green-hover: #4ade80;
+  --text: #e8ebe9;
+  --muted: #8b938e;
+  --danger: #ef4444;
+  --mono: "JetBrains Mono", "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  min-width: 320px;
+  margin: 0;
+  background: var(--coal);
+  color: var(--text);
+  font-family: var(--mono);
+}
+
+button,
+input,
+label { font: inherit; }
+
+.vault {
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  background: var(--coal);
+  color: var(--text);
+}
+
+.vault-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.brand-mark {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border: 1px solid var(--green);
+  border-radius: 4px;
+  color: var(--green);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+}
+
+.eyebrow {
+  margin: 0 0 3px;
+  color: var(--green);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+p { margin: 0; }
+
+h1 {
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+
+h2 {
+  color: var(--text);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  margin-left: auto;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 8px rgba(34, 197, 94, .45);
+}
+
+.vault-content {
+  flex: 1;
+  padding: 16px;
+}
+
+.empty-state {
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.empty-icon {
+  display: grid;
+  width: 56px;
+  height: 56px;
+  margin-bottom: 18px;
+  place-items: center;
+  border: 1px dashed var(--border);
+  border-radius: 5px;
+  color: var(--green);
+  cursor: pointer;
+  font-size: 24px;
+  line-height: 1;
+  transition: border-color .15s, color .15s, background .15s, box-shadow .15s;
+}
+
+.empty-icon:hover,
+.empty-icon:focus-within {
+  border-color: var(--green);
+  background: rgba(34, 197, 94, .08);
+  box-shadow: 0 0 8px rgba(34, 197, 94, .2);
+  color: var(--green-hover);
+}
+
+.empty-icon input { display: none; }
+.empty-state h2 { margin-bottom: 8px; }
+.empty-state p { color: var(--muted); font-size: 12px; line-height: 1.4; }
+
+.section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.file-count {
+  padding: 3px 7px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--green);
+  font-size: 10px;
+}
+
+.file-list { display: grid; gap: 8px; }
+
+.add-file-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 36px;
+  margin-top: 12px;
+  border: 1px dashed var(--border);
+  border-radius: 5px;
+  color: var(--green);
+  cursor: pointer;
+  font-size: 11px;
+  transition: border-color .15s, background .15s, color .15s;
+}
+
+.add-file-button:hover,
+.add-file-button:focus-within {
+  border-color: var(--green);
+  background: rgba(34, 197, 94, .08);
+  color: var(--green-hover);
+}
+
+.add-file-button span {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.add-file-button input { display: none; }
+
+.file-row {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-left: 2px solid transparent;
+  border-radius: 5px;
+  background: var(--surface);
+  transition: background .15s, border-color .15s;
+}
+
+.file-row:hover {
+  border-left-color: var(--green);
+  background: var(--surface-hover);
+}
+
+.file-icon {
+  display: grid;
+  width: 32px;
+  height: 34px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid var(--green);
+  border-radius: 4px;
+  color: var(--green);
+  font-size: 8px;
+  font-weight: 700;
+  overflow: hidden;
+  text-transform: uppercase;
+}
+
+.file-details { min-width: 0; display: grid; gap: 4px; }
+.file-details strong,
+.file-details span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.file-details strong { color: var(--text); font-size: 12px; font-weight: 600; }
+.file-details span { color: var(--muted); font-size: 11px; }
+
+.vault-footer {
+  padding: 11px 16px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 10px;
+  text-align: center;
+}
